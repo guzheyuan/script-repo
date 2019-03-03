@@ -10,6 +10,7 @@ yum makecache
 
 # 安装libsodium
 yum install epel-release -y
+yum install -y yum-utils && yum-config-manager --enable epel
 yum install libsodium -y
 
 # 安装ss服务
