@@ -1,6 +1,13 @@
 # 安装pip
 yum install -y  python-setuptools && easy_install pip
 
+# 安装wget
+yum install wget -y
+
+# 换源centos7
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+yum makecache
+
 # 安装libsodium
 yum install epel-release -y
 yum install libsodium -y
