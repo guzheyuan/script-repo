@@ -25,3 +25,20 @@ ssserver -c /etc/shadowsocks.json -d start
 # 防火墙
 firewall-cmd --zone=public --add-port=753/tcp --permanent
 firewall-cmd --reload
+
+# 开机自启动
+vi /etc/systemd/system/shadowsocks.service
+
+[Unit]
+Description=Shadowsocks
+
+[Service]
+TimeoutStartSec=0
+ExecStart=/usr/bin/ssserver -c /etc/shadowsocks.json
+
+[Install]
+WantedBy=multi-user.target
+
+# 启用开机自启动
+systemctl enable shadowsocks
+systemctl start shadowsocks
